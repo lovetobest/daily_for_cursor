@@ -1,8 +1,8 @@
 """Run the toy language model with greedy search and beam search.
 
 Usage:
-    python -m beamsearch
-    python -m beamsearch --beam-width 3
+    python3 -m beamsearch
+    python3 -m beamsearch --beam-width 3
 """
 
 from __future__ import annotations

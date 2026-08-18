@@ -5,19 +5,19 @@ A small, dependency-free Python demo of **beam search**: keep the top *k* partia
 ## Run the demo
 
 ```bash
-python -m beamsearch
+python3 -m beamsearch
 ```
 
 Greedy decoding locks onto `the cat sat on the mat` because `cat` is the locally better choice after `the`. A wider beam also keeps `dog`, and finishes with the globally better sequence `the dog ran away`.
 
 ```bash
-python -m beamsearch --beam-width 3
+python3 -m beamsearch --beam-width 3
 ```
 
 ## Tests
 
 ```bash
-python -m unittest discover -s tests -v
+python3 -m unittest discover -s tests -v
 ```
 
 ## Layout
