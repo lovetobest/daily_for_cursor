@@ -1,0 +1,14 @@
+---
+description: Repo-wide facts for daily_for_cursor
+alwaysApply: true
+---
+
+# Project
+
+This is a small Python demo repo, not a production service.
+
+- Keep changes small and local to the sample being edited.
+- Do not introduce third-party dependencies unless the user explicitly asks.
+- After code changes, run `python3 -m unittest discover -s tests -v`.
+- Point to canonical files instead of restating their contents: `beamsearch/search.py`, `tests/test_search.py`.
+- When adding a sample, follow `AGENTS.md` and update `README.md`.

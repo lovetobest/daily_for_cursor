@@ -1,0 +1,13 @@
+---
+description: How to write and run tests in this repo
+globs: "tests/**/*.py"
+alwaysApply: false
+---
+
+# Tests
+
+- Use `unittest.TestCase` in `tests/test_*.py`. Do not add pytest unless asked.
+- Name tests after the behavior, not the implementation (`test_wider_beam_recovers_higher_scoring_dog_ran`).
+- Assert observable outputs (`format_tokens(...)`, log-probs) rather than private helpers.
+- When changing search or a toy model, extend the existing class in `tests/test_search.py` instead of creating a parallel suite.
+- Run `python3 -m unittest discover -s tests -v` before considering the change done.
