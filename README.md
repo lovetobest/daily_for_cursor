@@ -1,4 +1,10 @@
-# Beam search sample
+# daily_for_cursor
+
+Practice repo for Cursor: small coding samples plus a checked-in Agent setup (`AGENTS.md`, `.cursor/rules/`, `.cursor/skills/`).
+
+Read **[Cursor 最佳实践](docs/cursor-best-practices.md)** for the workflow (Plan Mode, context, Rules vs Skills, Cloud Agent). In Agent chat, `/run-tests` runs the suite and `/add-sample` follows the layout below.
+
+## Beam search sample
 
 A small, dependency-free Python demo of **beam search**: keep the top *k* partial sequences while decoding, instead of always taking the single best next token (greedy search).
 
@@ -24,6 +30,10 @@ python3 -m unittest discover -s tests -v
 
 | Path | Role |
 |------|------|
+| `docs/cursor-best-practices.md` | Cursor 最佳实践 |
+| `AGENTS.md` | Project facts for Agent |
+| `.cursor/rules/` | Scoped coding conventions |
+| `.cursor/skills/` | Repeatable Agent workflows |
 | `beamsearch/search.py` | `beam_search` and `greedy_search` |
 | `beamsearch/toy_lm.py` | Tiny hand-written next-token model |
 | `beamsearch/__main__.py` | CLI demo |

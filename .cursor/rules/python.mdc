@@ -1,0 +1,15 @@
+---
+description: Python style for this repo's samples
+globs: "**/*.py"
+alwaysApply: false
+---
+
+# Python
+
+Match `beamsearch/search.py` and `tests/test_search.py`.
+
+- Target Python 3.9+: `from __future__ import annotations`, built-in generics (`list[str]`, `dict[str, float]`).
+- Use type hints on public functions. Prefer `@dataclass(frozen=True)` for simple value types.
+- Keep modules focused. Put CLI in `__main__.py`, library code in sibling modules.
+- Raise `ValueError` for invalid caller arguments. Do not add custom exception hierarchies.
+- No third-party packages. Use `unittest`, `argparse`, and the rest of the stdlib.
