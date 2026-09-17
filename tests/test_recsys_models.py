@@ -150,7 +150,7 @@ class AttentionTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self_attention([], causal=True)
 
-    def test_dot_strict_zip(self) -> None:
+    def test_dot_rejects_mismatched_dims(self) -> None:
         with self.assertRaises(ValueError):
             dot([1.0, 2.0], [1.0])
 
