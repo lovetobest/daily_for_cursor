@@ -82,10 +82,10 @@ def _two_tower(history: tuple[str, ...], k: int) -> None:
     pos = item_embedding("latte")
     easy_neg = item_embedding("burger")
     hard_neg = item_embedding("sushi")
-    loss_easy, p_easy = infonce_loss(user, pos, [easy_neg])
-    loss_hard, p_hard = infonce_loss(user, pos, [hard_neg])
+    loss_easy, p_easy = infonce_loss(user, pos, [easy_neg], temperature=0.4)
+    loss_hard, p_hard = infonce_loss(user, pos, [hard_neg], temperature=0.4)
     print(
-        f"  本例 InfoNCE  τ=0.07  正例=latte"
+        f"  本例 InfoNCE  τ=0.4   正例=latte"
         f"  vs burger(易负) loss={loss_easy:.3f}  P+= {p_easy[0]:.3f}"
     )
     print(
@@ -149,7 +149,10 @@ def _din(history: tuple[str, ...], k: int) -> None:
         )
     print()
     _print_rank("  DIN 全库精排（每个候选一个 u_i）", model.rank(history), k)
-    print("  这就是为什么精排不能直接换成双塔: 交叉发生在「用户历史 × 这个候选」。")
+    print("  latte 和 sushi 都能打出接近 1 的分 —— 两路兴趣同时成立。")
+    print("  分数扎堆是 target attention 的副作用：注意力一塌到匹配点击，")
+    print("  cos(u_i, c) ≈ 1。论文后面接 MLP 交叉，就是为了在「都匹配」的")
+    print("  候选之间再拉开。双塔做不到这种「按候选回看历史」。")
     print("  BST 把 candidate 接到序列末尾再跑 Transformer，是同一件事的序列版。")
     print("  复杂度 O(|history| × |candidates| × d)，只扛得住几百条，扛不住一千万。")
     print()
